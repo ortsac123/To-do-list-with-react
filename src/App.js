@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TodoCounter from './componentes/TodoCounter';
 import TodoList from './componentes/TodoList';
 import TodoItem from './componentes/TodoItem';
@@ -18,7 +18,20 @@ const todos =[
 
 function App() {
 
-  const [todoss, setTodos] = React.useState(todos);
+  const dele = localStoraee('hola', '1+1=2');
+  const localStoraee = localStorage.getItem('ToDo_V1');
+  let auxTodos;
+
+  if(!localStoraee){
+    localStorage.getItem('ToDo_V1',  JSON.stringify([]));
+    auxTodos = [];
+  } else {
+    auxTodos = JSON.parse(localStoraee);
+  }
+
+
+
+  const [todoss, setTodos] = React.useState(auxTodos);
   const [stateSearch, setStateSearch] = React.useState("");
   const completados  = todoss.filter(todo => !!todo.completed).length;
   const totalTodos =  todoss.length;
