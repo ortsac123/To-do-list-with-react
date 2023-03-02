@@ -9,7 +9,6 @@ import CreateTodoButton from './componentes/CreateTodoButton';
 
 const todos =[
   {text : 'Practicar guitarra', completed: false},
-  {text : 'Hace ejercicio', completed: false},
   {text : 'Estudiar ingles', completed: false},
   {text : 'Comer saludable', completed: false},
   {text : 'No comer azucar jajaj', completed: false}
@@ -31,7 +30,7 @@ function App() {
   const [todoss, setTodos] = React.useState(newStorage);
   const [stateSearch, setStateSearch] = React.useState("");
   const completados  = todoss.filter(todo => !!todo.completed).length;
-  const totalTodos =  todoss.length;
+  const totalTodos =  todoss.length; 
 
   let filTodos = [];
 
