@@ -18,20 +18,17 @@ const todos =[
 
 function App() {
 
-  const dele = localStoraee('hola', '1+1=2');
-  const localStoraee = localStorage.getItem('ToDo_V1');
-  let auxTodos;
-
-  if(!localStoraee){
-    localStorage.getItem('ToDo_V1',  JSON.stringify([]));
-    auxTodos = [];
+  const auxStorage = localStorage.getItem('ToDo_V1');
+  let newStorage = [];
+  if (!auxStorage){
+    localStorage.setItem('ToDo_V1', JSON.stringify([]));
+    newStorage = [];
   } else {
-    auxTodos = JSON.parse(localStoraee);
+    newStorage = JSON.parse(auxStorage);
   }
+  
 
-
-
-  const [todoss, setTodos] = React.useState(auxTodos);
+  const [todoss, setTodos] = React.useState(newStorage);
   const [stateSearch, setStateSearch] = React.useState("");
   const completados  = todoss.filter(todo => !!todo.completed).length;
   const totalTodos =  todoss.length;
